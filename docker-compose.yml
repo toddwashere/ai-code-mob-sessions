@@ -1,0 +1,14 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: coolproject
+      POSTGRES_PASSWORD: coolproject
+      POSTGRES_DB: coolproject
+    ports:
+      - "6767:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
