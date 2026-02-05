@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
-import { AuthSessionProvider } from "@/components/providers/session-provider";
+import { SupportWidget } from "@/components/support-widget";
+
+const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
-  title: "CoolProject",
-  description: "A Next.js app with authentication",
+  title: "Expense Shamer",
+  description: "Face your financial shame. Your mom will hear about this.",
 };
 
 export default function RootLayout({
@@ -14,8 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="antialiased">
-        <AuthSessionProvider>{children}</AuthSessionProvider>
+      <body className={`${inter.variable} font-sans antialiased`}>
+        {children}
+        <SupportWidget />
       </body>
     </html>
   );

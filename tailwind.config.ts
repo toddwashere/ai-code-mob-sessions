@@ -48,6 +48,22 @@ const config: Config = {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
+        shame: {
+          DEFAULT: "hsl(var(--shame))",
+          muted: "hsl(var(--shame-muted))",
+        },
+      },
+      fontFamily: {
+        sans: ["var(--font-sans)", "ui-sans-serif", "system-ui", "sans-serif"],
+      },
+      boxShadow: {
+        soft: "0 1px 3px rgb(0 0 0 / 0.04)",
+        "soft-lg":
+          "0 4px 24px -4px rgb(0 0 0 / 0.08), 0 8px 48px -8px rgb(0 0 0 / 0.04)",
+        glass: "0 8px 32px rgb(0 0 0 / 0.06)",
+      },
+      backdropBlur: {
+        xs: "2px",
       },
     },
   },

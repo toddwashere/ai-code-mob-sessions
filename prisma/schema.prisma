@@ -45,11 +45,24 @@ model User {
   email         String?   @unique
   emailVerified DateTime? @map("email_verified")
   image         String?
-  password      String?   // Hashed password for credentials auth
+  password      String? // Hashed password for credentials auth
   accounts      Account[]
   sessions      Session[]
 
   @@map("users")
+}
+
+model Expense {
+  id             String   @id @default(cuid())
+  amount         Decimal  @db.Decimal(10, 2)
+  description    String
+  category       String
+  createdAt      DateTime @default(now()) @map("created_at")
+  imageEncrypted String?  @map("image_encrypted") @db.Text
+  imageIv        String?  @map("image_iv")
+  imageAuthTag   String?  @map("image_auth_tag")
+
+  @@map("expenses")
 }
 
 model VerificationToken {
