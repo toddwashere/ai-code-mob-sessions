@@ -27,6 +27,7 @@ export async function POST(request: Request) {
     );
   }
 
+  try {
   const expense = await prisma.expense.create({
     data: {
       amount: parseFloat(amount),
@@ -39,4 +40,10 @@ export async function POST(request: Request) {
     ...expense,
     amount: Number(expense.amount),
   });
+  } catch (err) {
+    return NextResponse.json(
+      { error: "Failed to create expense" },
+      { status: 500 },
+    );
+  }
 }

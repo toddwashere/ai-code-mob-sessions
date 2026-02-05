@@ -150,8 +150,8 @@ export function ExpenseShamer() {
     });
 
     if (res.ok) {
-      playSadTrombone();
       const newExpense = await res.json();
+      playSadTrombone();
       setExpenses((prev) => [newExpense, ...prev]);
       setExpensesAddedThisSession((n) => n + 1);
       const totalAfter = total + newExpense.amount;
